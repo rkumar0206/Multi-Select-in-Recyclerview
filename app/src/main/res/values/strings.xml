@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Multi Select In RecyclerView</string>
+    <string name="imagebutton">imageButton</string>
+    <string name="delete_0">Delete (0)</string>
+</resources>
