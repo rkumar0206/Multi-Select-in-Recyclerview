@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.selection.Selection
@@ -22,7 +23,7 @@ import kotlinx.coroutines.*
 
 private const val TAG = "MainActivity"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CategoryAdapter.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -72,7 +73,15 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
+
+        mAdapter.setOnClickListener(this)
     }
+
+    override fun onItemClick(model: Category) {
+
+        Toast.makeText(this, "${model.categoryName}", Toast.LENGTH_SHORT).show()
+    }
+
 
     private fun setUpTracker() {
 
@@ -215,4 +224,5 @@ class MainActivity : AppCompatActivity() {
             categoryList.add(category)
         }
     }
+
 }

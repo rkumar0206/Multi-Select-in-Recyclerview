@@ -20,12 +20,13 @@ class CategoryAdapter :
     inner class CategoryViewHolder(val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-/*
         init {
 
-            setHasStableIds(true)
+            binding.root.setOnClickListener {
+
+                mListener!!.onItemClick(getItem(absoluteAdapterPosition))
+            }
         }
-*/
 
         fun bind(category: Category?, isSelected: Boolean) = with(binding) {
 
